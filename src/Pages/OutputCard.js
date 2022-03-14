@@ -30,11 +30,11 @@ export default function OutputCard(props) {
 
   function handleClick() {
     props.setTipState({
-      bill: 0,
-      numPeeps: 0,
-      tipPerc: 0,
-      totalTip: 0,
-      totalBill: 0,
+      bill: "",
+      numPeeps: "",
+      tipPerc: "",
+      totalTip: "",
+      totalBill: "",
     });
   }
 
@@ -72,7 +72,7 @@ export default function OutputCard(props) {
         <Grid item container justifyContent={"flex-end"} xs={6}>
           <TypogComp
             text={
-              props.tipState.totalTip === 0
+              props.tipState.totalTip === ""
                 ? "$ 0.00"
                 : "$" +
                   parseFloat(
@@ -90,7 +90,7 @@ export default function OutputCard(props) {
         direction={"row"}
         className={classes.title}
         xs={12}
-        style={{ marginBottom: matchesMD ? "2rem" : "7.6rem" }}
+        style={{ marginBottom: matchesMD ? "2rem" : "10rem" }}
       >
         <Grid item container direction={"column"} xs={6}>
           <Grid item>
@@ -111,7 +111,7 @@ export default function OutputCard(props) {
         <Grid item container justifyContent={"flex-end"} xs={6}>
           <TypogComp
             text={
-              props.tipState.totalBill === 0
+              props.tipState.totalBill === ""
                 ? "$ 0.00"
                 : "$" +
                   parseFloat(
@@ -128,7 +128,7 @@ export default function OutputCard(props) {
         container
         className={classes.title}
         xs={12}
-        style={{ paddingBottom: "1rem" }}
+        style={{ paddingBottom: "3rem" }}
       >
         <ButtonComp
           butName={"RESET"}

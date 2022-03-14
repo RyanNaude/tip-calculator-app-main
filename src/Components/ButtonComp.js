@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.buttonBackground.main,
     fontFamily: "Space Mono",
+    height: "3rem",
     "&:hover": {
       backgroundColor: theme.palette.buttonHoverBackground.main,
       color: theme.palette.buttonBackground.main,

@@ -1,5 +1,5 @@
 /** Main App Page */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 /** Import MUI 5 Theme */
 import { ThemeProvider } from "@mui/styles";
@@ -22,6 +22,15 @@ function App() {
     totalBill: "",
   });
 
+  const [checkField, setCheckField] = useState(false);
+
+  useEffect(() => {
+    Object.keys(tipState).map((data) => {
+      if (tipState[data] === "") {
+      }
+    });
+  }, [checkField]);
+
   return (
     <ThemeProvider theme={theme}>
       <Grid container direction="column">
@@ -29,7 +38,12 @@ function App() {
           <Header />
         </Grid>
         <Grid>
-          <Main tipState={tipState} setTipState={setTipState} />
+          <Main
+            tipState={tipState}
+            setTipState={setTipState}
+            checkField={checkField}
+            setCheckField={setCheckField}
+          />
         </Grid>
         <Grid>
           <Footer />

@@ -34,7 +34,12 @@ export default function Main(props) {
         alignItems="center"
       >
         <Grid item container xs={12} justifyContent={"center"}>
-          <MainCard tipState={props.tipState} setTipState={props.setTipState} />
+          <MainCard
+            tipState={props.tipState}
+            setTipState={props.setTipState}
+            checkField={props.checkField}
+            setCheckField={props.setCheckField}
+          />
         </Grid>
       </Grid>
     </Grid>

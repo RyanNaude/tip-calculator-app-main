@@ -1,5 +1,5 @@
 /** Advice Generator Page */
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 /** Import Material UI Components */
 import { Grid } from "@mui/material";
@@ -40,6 +40,8 @@ export default function MainCard(props) {
           <InputCard
             tipState={props.tipState}
             setTipState={props.setTipState}
+            checkField={props.checkField}
+            setCheckField={props.setCheckField}
           />
         </Grid>
         <Grid item xs={6}>

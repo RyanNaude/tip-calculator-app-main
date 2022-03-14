@@ -7,13 +7,16 @@ import { makeStyles } from "@mui/styles";
 import PersonIcon from "@mui/icons-material/Person";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import InputAdornment from "@mui/material/InputAdornment";
+import { fontSize } from "@mui/system";
 
 /** Material UI Styles */
 const useStyles = makeStyles((theme) => ({
   root: {},
   input: {
-    // padding: "0.5rem",
-    // border: "0"
+    color: "#00494d",
+    fontSize: "20px",
+    fontFamily: "Space Mono",
+    height: "1rem",
   },
 }));
 
@@ -29,6 +32,8 @@ export default function TextFieldComp(props) {
       style={{
         width: "100%",
         backgroundColor: "#f4fafa",
+        marginLeft: "0.7rem",
+        marginRight: "0.7rem",
       }}
       onChange={props.handleChange}
       name={props.textName}
@@ -36,7 +41,6 @@ export default function TextFieldComp(props) {
         className: classes.input,
         min: 0,
         style: { textAlign: "right" },
-        fontFamily: "Space Mono",
       }}
       placeholder={props.placeHolder}
       InputProps={{

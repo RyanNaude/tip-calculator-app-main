@@ -1,5 +1,5 @@
 /** Advice Generator Page */
-import React from "react";
+import React, { useState } from "react";
 
 /** Import Material UI Components */
 import { Grid } from "@mui/material";
@@ -29,10 +29,13 @@ export default function InputCard(props) {
   const theme = useTheme();
   const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
 
+  // console.log(props);
+
   function handleChange(event) {
     switch (event.target.name) {
       case "numPeeps":
         if (props.tipState.bill !== 0 && props.tipState.tipPerc) {
+          props.setCheckField(!props.checkField);
           var tpp = props.tipState.bill * (props.tipState.tipPerc / 100);
           var totBill = parseInt(props.tipState.bill) + tpp;
           props.setTipState({
@@ -49,6 +52,7 @@ export default function InputCard(props) {
           ...props.tipState,
           [event.target.name]: parseInt(event.target.value),
         });
+        props.setCheckField(!props.checkField);
         break;
     }
   }
@@ -58,6 +62,7 @@ export default function InputCard(props) {
       ...props.tipState,
       tipPerc: parseInt(event.target.value),
     });
+    props.setCheckField(!props.checkField);
   }
 
   return (
