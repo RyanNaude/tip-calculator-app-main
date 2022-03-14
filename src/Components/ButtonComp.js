@@ -3,6 +3,8 @@ import React from "react";
 /** Import MUI components */
 import Button from "@mui/material/Button";
 import { makeStyles } from "@mui/styles";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 /** Material UI Styles */
 const useStyles = makeStyles((theme) => ({
@@ -13,7 +15,9 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: theme.palette.buttonHoverBackground.main,
       color: theme.palette.buttonBackground.main,
     },
-    [theme.breakpoints.down("md")]: {},
+    [theme.breakpoints.down("md")]: {
+      fontSize: "24px",
+    },
   },
   submitRoot: {
     backgroundColor: theme.palette.buttonHoverBackground.main,
@@ -29,6 +33,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ButtonComp(props) {
   const classes = useStyles();
+  const theme = useTheme();
+  const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
     <Button

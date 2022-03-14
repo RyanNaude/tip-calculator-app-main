@@ -15,11 +15,11 @@ import Footer from "../Layout/Footer/index";
 
 function App() {
   const [tipState, setTipState] = useState({
-    bill: 0,
-    numPeeps: 0,
-    tipPerc: 0,
-    totalTip: 0,
-    totalBill: 0,
+    bill: "",
+    numPeeps: "",
+    tipPerc: "",
+    totalTip: "",
+    totalBill: "",
   });
 
   return (
@@ -31,9 +31,9 @@ function App() {
         <Grid>
           <Main tipState={tipState} setTipState={setTipState} />
         </Grid>
-        {/* <Grid>
+        <Grid>
           <Footer />
-        </Grid> */}
+        </Grid>
       </Grid>
     </ThemeProvider>
   );

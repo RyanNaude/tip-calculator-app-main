@@ -32,8 +32,18 @@ export default function Header(props) {
       alignItems="center"
       className={classes.root}
     >
-      <TypogComp text={"SPLI"} colorFont={"#00494d"} letSpace={"8px"} />
-      <TypogComp text={"TTER"} colorFont={"#00494d"} letSpace={"8px"} />
+      <TypogComp
+        text={"SPLI"}
+        colorFont={"#5e7a7d"}
+        letSpace={"8px"}
+        fonts={matchesMD ? "20px" : "30px"}
+      />
+      <TypogComp
+        text={"TTER"}
+        colorFont={"#5e7a7d"}
+        letSpace={"8px"}
+        fonts={matchesMD ? "20px" : "30px"}
+      />
     </Grid>
   );
 }

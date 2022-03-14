@@ -32,7 +32,6 @@ export default function Main(props) {
         className={classes.root}
         justifyContent="center"
         alignItems="center"
-        width={matchesMD ? "375px" : "1440px"}
       >
         <Grid item container xs={12} justifyContent={"center"}>
           <MainCard tipState={props.tipState} setTipState={props.setTipState} />

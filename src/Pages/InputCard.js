@@ -1,9 +1,11 @@
 /** Advice Generator Page */
-import React, { useEffect } from "react";
+import React from "react";
 
 /** Import Material UI Components */
 import { Grid } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+import { useTheme } from "@mui/material/styles";
+import { useMediaQuery } from "@mui/material";
 
 /** Import Custom Components */
 import TypogComp from "../Components/TypogComp";
@@ -18,16 +20,14 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: "1rem",
     paddingRight: "1.5rem",
     borderRadius: "20px",
-    [theme.breakpoints.down("md")]: {},
+    marginBottom: "2rem",
   },
 }));
 
 export default function InputCard(props) {
   const classes = useStyles();
-
-  useEffect(() => {
-    console.log();
-  }, []);
+  const theme = useTheme();
+  const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
 
   function handleChange(event) {
     switch (event.target.name) {
@@ -66,7 +66,11 @@ export default function InputCard(props) {
         <TypogComp text={"Bill"} colorFont={"#7f9c9f"} />
       </Grid>
       <Grid item xs={12} style={{ marginBottom: "1.5rem" }}>
-        <TextFieldComp textName={"bill"} handleChange={handleChange} />
+        <TextFieldComp
+          textName={"bill"}
+          handleChange={handleChange}
+          value={props.tipState.bill}
+        />
       </Grid>
       <Grid item xs={12}>
         <TypogComp text={"Select Tip %"} colorFont={"#7f9c9f"} />
@@ -76,7 +80,7 @@ export default function InputCard(props) {
           item
           container
           justifyContent={"center"}
-          xs={4}
+          xs={matchesMD ? 6 : 4}
           style={{
             paddingTop: "0.5rem",
             paddingBottom: "0.5rem",
@@ -94,7 +98,7 @@ export default function InputCard(props) {
           item
           container
           justifyContent={"center"}
-          xs={4}
+          xs={matchesMD ? 6 : 4}
           style={{
             paddingTop: "0.5rem",
             paddingBottom: "0.5rem",
@@ -112,7 +116,7 @@ export default function InputCard(props) {
           item
           container
           justifyContent={"center"}
-          xs={4}
+          xs={matchesMD ? 6 : 4}
           style={{
             paddingTop: "0.5rem",
             paddingBottom: "0.5rem",
@@ -130,7 +134,7 @@ export default function InputCard(props) {
           item
           container
           justifyContent={"center"}
-          xs={4}
+          xs={matchesMD ? 6 : 4}
           style={{
             paddingTop: "0.5rem",
             paddingBottom: "0.5rem",
@@ -148,7 +152,7 @@ export default function InputCard(props) {
           item
           container
           justifyContent={"center"}
-          xs={4}
+          xs={matchesMD ? 6 : 4}
           style={{
             paddingTop: "0.5rem",
             paddingBottom: "0.5rem",
@@ -166,21 +170,29 @@ export default function InputCard(props) {
           item
           container
           justifyContent={"center"}
-          xs={4}
+          xs={matchesMD ? 6 : 4}
           style={{
             paddingTop: "0.5rem",
             paddingBottom: "0.5rem",
           }}
         >
-          <TextFieldComp textName={"tipPerc"} handleChange={handleChange} />
+          <TextFieldComp
+            textName={"tipPerc"}
+            handleChange={handleChange}
+            placeHolder={"Custom"}
+            value={props.tipState.tipPerc}
+          />
         </Grid>
       </Grid>
-
       <Grid item xs={12}>
         <TypogComp text={"Number of People"} colorFont={"#7f9c9f"} />
       </Grid>
       <Grid item xs={12}>
-        <TextFieldComp textName={"numPeeps"} handleChange={handleChange} />
+        <TextFieldComp
+          textName={"numPeeps"}
+          handleChange={handleChange}
+          value={props.tipState.numPeeps}
+        />
       </Grid>
     </Grid>
   );

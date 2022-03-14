@@ -24,7 +24,7 @@ export default function Footer(props) {
 
   return (
     <Grid container justifyContent="center" alignItems="center" className={classes.root}>
-      <h1>Footer</h1>
+      {/* <h1>Footer</h1> */}
     </Grid>
   );
 }

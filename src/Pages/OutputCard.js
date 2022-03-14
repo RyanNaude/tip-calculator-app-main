@@ -1,5 +1,5 @@
 /** Advice Generator Page */
-import React, { useEffect } from "react";
+import React from "react";
 
 /** Import Material UI Components */
 import { Grid } from "@mui/material";
@@ -26,10 +26,17 @@ const useStyles = makeStyles((theme) => ({
 export default function OutputCard(props) {
   const classes = useStyles();
   const theme = useTheme();
-
   const matchesMD = useMediaQuery(theme.breakpoints.down("md"));
 
-  useEffect(() => {}, []);
+  function handleClick() {
+    props.setTipState({
+      bill: 0,
+      numPeeps: 0,
+      tipPerc: 0,
+      totalTip: 0,
+      totalBill: 0,
+    });
+  }
 
   return (
     <Grid
@@ -73,7 +80,7 @@ export default function OutputCard(props) {
                   ).toFixed(2)
             }
             colorFont={"#26c0ab"}
-            fonts={matchesMD ? "25px" :"30px"}
+            fonts={matchesMD ? "25px" : "30px"}
           />
         </Grid>
       </Grid>
@@ -83,14 +90,22 @@ export default function OutputCard(props) {
         direction={"row"}
         className={classes.title}
         xs={12}
-        style={{ marginBottom: "7.6rem" }}
+        style={{ marginBottom: matchesMD ? "2rem" : "7.6rem" }}
       >
         <Grid item container direction={"column"} xs={6}>
           <Grid item>
-            <TypogComp text={"Total"} colorFont={"#f4fafa"} fonts={matchesMD ? "14px" : "18px"} />
+            <TypogComp
+              text={"Total"}
+              colorFont={"#f4fafa"}
+              fonts={matchesMD ? "14px" : "18px"}
+            />
           </Grid>
           <Grid item>
-            <TypogComp text={"/ person"} colorFont={"#7f9c9f"} fonts={matchesMD ? "10px" : "14px"} />
+            <TypogComp
+              text={"/ person"}
+              colorFont={"#7f9c9f"}
+              fonts={matchesMD ? "10px" : "14px"}
+            />
           </Grid>
         </Grid>
         <Grid item container justifyContent={"flex-end"} xs={6}>
@@ -104,7 +119,7 @@ export default function OutputCard(props) {
                   ).toFixed(2)
             }
             colorFont={"#26c0ab"}
-            fonts={matchesMD ? "25px" :"30px"}
+            fonts={matchesMD ? "25px" : "30px"}
           />
         </Grid>
       </Grid>
@@ -115,7 +130,11 @@ export default function OutputCard(props) {
         xs={12}
         style={{ paddingBottom: "1rem" }}
       >
-        <ButtonComp butName={"RESET"} butWidth={"100%"} />
+        <ButtonComp
+          butName={"RESET"}
+          butWidth={"100%"}
+          handleChange={handleClick}
+        />
       </Grid>
     </Grid>
   );
